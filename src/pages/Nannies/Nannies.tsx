@@ -1,5 +1,9 @@
 const Nannies = () => {
-  return <div>Nannies</div>;
+  return (
+    <main>
+      <div className="container">Nannies</div>
+    </main>
+  );
 };
 
 export default Nannies;
