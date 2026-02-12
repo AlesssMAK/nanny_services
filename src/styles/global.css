@@ -45,14 +45,14 @@ h6 {
 
 .container {
   min-width: 320px;
-  max-width: 375px;
+  max-width: 767px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 768px;
+    max-width: 1439px;
     padding: 0 32px;
   }
 }
@@ -62,4 +62,31 @@ h6 {
     max-width: 1440px;
     padding: 0 128px;
   }
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.01em;
+  color: #fbfbfb;
+  border-radius: 30px;
+  background: #103931;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.button:hover,
+.button:focus {
+  background: #fbfbfb;
+  color: #103931;
+}
+
+.button_link {
+  border: 1px solid rgba(251, 251, 251, 0.4);
+  background: transparent;
 }
