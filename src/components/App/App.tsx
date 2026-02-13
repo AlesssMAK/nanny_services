@@ -4,6 +4,7 @@ import Home from '../../pages/Home';
 import Nannies from '../../pages/Nannies/Nannies';
 import Favorites from '../../pages/Favorites/Favorites';
 import MainLayout from '../../layouts/MainLayout';
+import PrivateRoute from '../../routes/PrivateRoute';
 
 function App() {
   return (
@@ -11,7 +12,14 @@ function App() {
       <Route element={<MainLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/nannies" element={<Nannies />} />
-        <Route path="/favorites" element={<Favorites />} />
+        <Route
+          path="/favorites"
+          element={
+            <PrivateRoute>
+              <Favorites />
+            </PrivateRoute>
+          }
+        />
       </Route>
     </Routes>
   );
