@@ -1,0 +1,73 @@
+.auth_form_container {
+  padding: 44px 20px 20px 20px;
+  width: 100%;
+
+  @media screen and (min-width: 336px) {
+    max-width: 566px;
+  }
+
+  @media screen and (min-width: 375px) {
+    padding: 56px 32px 32px 32px;
+  }
+
+  @media screen and (min-width: 586px) {
+    padding: 64px;
+  }
+}
+
+.close_btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  transition: all 0.3 ease;
+
+  @media screen and (min-width: 375px) {
+    top: 20px;
+    right: 20px;
+  }
+}
+
+.close_btn_icon {
+  stroke: #11101c;
+}
+
+.close_btn:hover,
+.close_btn:focus {
+  opacity: 0.7;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 48px;
+  letter-spacing: -0.02em;
+  color: #11101c;
+  margin-bottom: 20px;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: rgba(17, 16, 28, 0.5);
+  margin-bottom: 40px;
+}
+
+.input_container {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 40px;
+}
+
+.input_item {
+  position: relative;
+}
+
+.error {
+  position: absolute;
+  color: red;
+  font-size: 12px;
+  bottom: -16px;
+  left: 8px;
+}

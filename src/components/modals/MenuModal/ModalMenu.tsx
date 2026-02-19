@@ -1,18 +1,26 @@
-import { createPortal } from 'react-dom';
-import css from './ModalMenu.module.css';
 import { useEffect } from 'react';
-import { useAuthStore } from '../../../service/store/authStore';
+import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
+import { useAuthStore } from '../../../service/store/authStore';
 import Logo from '../../Logo/Logo';
-import Button from '../../UI/Button';
+import Button from '../../UI/Button/Button';
+import css from './ModalMenu.module.css';
 
 export interface ModalMenuProps {
   onClose: () => void;
+  openLogin: () => void;
+  openRegistration: () => void;
 }
 
-const ModalMenu = ({ onClose }: ModalMenuProps) => {
-  // const { isAuthenticated, user } = useAuthStore();
-  const isAuthenticated = true;
+const ModalMenu = ({
+  onClose,
+  openLogin,
+  openRegistration,
+}: ModalMenuProps) => {
+  const { isAuthenticated, user } = useAuthStore();
+  // const isAuthenticated = true;
+
+  console.log(user);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -22,11 +30,11 @@ const ModalMenu = ({ onClose }: ModalMenuProps) => {
     };
 
     document.addEventListener('keydown', handleKeyDown);
-    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
     };
   }, [onClose]);
   return createPortal(
@@ -65,7 +73,7 @@ const ModalMenu = ({ onClose }: ModalMenuProps) => {
                   </span>
                   <p className={css.user_name}>Ilona</p>
                 </div>
-                <Button className="button button_link" width={124}>
+                <Button className="button button_link auth_button" width={124}>
                   Log out
                 </Button>
               </div>
@@ -83,10 +91,18 @@ const ModalMenu = ({ onClose }: ModalMenuProps) => {
                 </ul>
               </nav>
               <div className={css.btn_container}>
-                <Button className="button button_link" width={114}>
+                <Button
+                  className="button button_link auth_button"
+                  width={114}
+                  onClick={openLogin}
+                >
                   Log In
                 </Button>
-                <Button className="button button_link" width={148}>
+                <Button
+                  className="button button_link auth_button"
+                  width={148}
+                  onClick={openRegistration}
+                >
                   Registration
                 </Button>
               </div>

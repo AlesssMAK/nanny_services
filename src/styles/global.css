@@ -80,11 +80,19 @@ h6 {
 
 .button:hover,
 .button:focus {
-  background: #fbfbfb;
+  background: transparent;
+  border: 1px solid #103931;
   color: #103931;
 }
 
 .button_link {
   border: 1px solid rgba(251, 251, 251, 0.4);
   background: transparent;
+}
+
+.auth_button:hover,
+.auth_button:focus {
+  background: #fbfbfb;
+  color: #103931;
+  border: none;
 }

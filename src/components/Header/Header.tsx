@@ -1,12 +1,15 @@
-import { Link } from 'react-router-dom';
-import css from './Header.module.css';
-import Button from '../UI/Button';
 import { useState } from 'react';
-import ModalMenu from '../modals/MenuModal/ModalMenu';
+import { Link } from 'react-router-dom';
 import Logo from '../Logo/Logo';
+import ModalMenu from '../modals/MenuModal/ModalMenu';
+import Button from '../UI/Button/Button';
+import css from './Header.module.css';
+import AuthForm from '../forms/AuthForm/AuthForm';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpenLogIn, setOpenLogIn] = useState(false);
+  const [isOpenRegistration, setOpenRegistration] = useState(false);
 
   const open = () => setIsOpen(true);
   const close = () => setIsOpen(false);
@@ -27,7 +30,19 @@ const Header = () => {
             </svg>
           </button>
 
-          {isOpen && <ModalMenu onClose={close} />}
+          {isOpen && (
+            <ModalMenu
+              onClose={close}
+              openLogin={() => {
+                setIsOpen(false);
+                setOpenLogIn(true);
+              }}
+              openRegistration={() => {
+                setIsOpen(false);
+                setOpenRegistration(true);
+              }}
+            />
+          )}
           <div className={css.nav_container}>
             <nav>
               <ul className={css.nav_list}>
@@ -40,13 +55,30 @@ const Header = () => {
               </ul>
             </nav>
             <div className={css.btn_container}>
-              <Button className="button button_link" width={124}>
+              <Button
+                className="button button_link auth_button"
+                width={124}
+                onClick={() => setOpenLogIn(true)}
+              >
                 Log In
               </Button>
-              <Button className="button" width={168}>
+              <Button
+                className="button auth_button"
+                width={168}
+                onClick={() => setOpenRegistration(true)}
+              >
                 Registration
               </Button>
             </div>
+            {isOpenLogIn && (
+              <AuthForm onClose={() => setOpenLogIn(false)} mode="login" />
+            )}
+            {isOpenRegistration && (
+              <AuthForm
+                onClose={() => setOpenRegistration(false)}
+                mode="registration"
+              />
+            )}
           </div>
         </div>
       </div>
