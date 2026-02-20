@@ -58,6 +58,7 @@
 
 .nav_list {
   display: flex;
+  align-items: center;
   flex-direction: column;
   gap: 12px;
 }
@@ -77,6 +78,14 @@
   align-items: center;
 }
 
+.user_btn_container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
 .close_btn:hover .close_btn_icon,
 .close_btn:focus .close_btn_icon,
 .nav_list_item:hover,
@@ -86,7 +95,7 @@
 
 .user_container {
   display: flex;
-  gap: 10px;
+  gap: 14px;
   justify-content: center;
   align-items: center;
 }

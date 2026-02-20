@@ -5,6 +5,7 @@ import { useAuthStore } from '../../../service/store/authStore';
 import Logo from '../../Logo/Logo';
 import Button from '../../UI/Button/Button';
 import css from './ModalMenu.module.css';
+import { logout } from '../../../service/firebase/auth.service';
 
 export interface ModalMenuProps {
   onClose: () => void;
@@ -18,9 +19,10 @@ const ModalMenu = ({
   openRegistration,
 }: ModalMenuProps) => {
   const { isAuthenticated, user } = useAuthStore();
-  // const isAuthenticated = true;
 
-  console.log(user);
+  const onLogout = async () => {
+    await logout();
+  };
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -64,16 +66,20 @@ const ModalMenu = ({
                   </li>
                 </ul>
               </nav>
-              <div className={css.btn_container}>
+              <div className={css.user_btn_container}>
                 <div className={css.user_container}>
                   <span className={css.user_avatar}>
                     <svg width="24" height="24" className={css.user_icon}>
                       <use href="/sprite.svg#user"></use>
                     </svg>
                   </span>
-                  <p className={css.user_name}>Ilona</p>
+                  <p className={css.user_name}>{user?.displayName}</p>
                 </div>
-                <Button className="button button_link auth_button" width={124}>
+                <Button
+                  className="button button_link auth_button"
+                  width={124}
+                  onClick={onLogout}
+                >
                   Log out
                 </Button>
               </div>
