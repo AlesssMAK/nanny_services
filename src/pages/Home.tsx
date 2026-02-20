@@ -18,7 +18,19 @@ const Home = () => {
               </svg>
             </Link>
           </div>
-          <div className={css.img_container}></div>
+          <div className={css.img_container}>
+            <div className={css.block_container}>
+              <span className={css.check_container}>
+                <svg width="30" height="30" className={css.check_icon}>
+                  <use href="sprite.svg#check"></use>
+                </svg>
+              </span>
+              <div className={css.text_container}>
+                <h3 className={css.block_title}>Experienced nannies</h3>
+                <p className={css.block_text}>15,000</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
