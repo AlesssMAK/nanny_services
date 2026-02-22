@@ -1,0 +1,165 @@
+.nanny_container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-radius: 24px;
+  background: #fbfbfb;
+  padding: 12px;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    gap: 18px;
+    padding: 18px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    gap: 24px;
+    padding: 24px;
+  }
+}
+
+/* ------- img ------- */
+
+.avatar_container {
+  position: relative;
+  display: flex;
+  flex: 0 0 120px;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid rgba(240, 63, 59, 0.2);
+  border-radius: 30px;
+  width: 120px;
+  height: 120px;
+}
+
+.avatar_container::after {
+  content: '';
+  position: absolute;
+  top: 7px;
+  right: 12px;
+  display: block;
+  background: #38cd3e;
+  width: 12px;
+  height: 12px;
+  border-radius: 100%;
+  border: 2px solid white;
+}
+
+.img {
+  border-radius: 15px;
+}
+
+/* ------- img ------- */
+
+/* ------- info ------- */
+
+.card_container {
+  width: 100%;
+}
+
+.name_info_container {
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 48px;
+  }
+}
+
+.name_container {
+  margin-bottom: 12px;
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 0px;
+  }
+}
+
+.name_title {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #8a8a89;
+  margin-bottom: 8px;
+}
+
+.name {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1;
+  color: #11101c;
+}
+
+.meta_container {
+  display: flex;
+}
+
+.blocks_container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0px 8px;
+  align-items: center;
+  margin-right: 24px;
+
+  @media screen and (min-width: 1440px) {
+    margin-right: 48px;
+    gap: 16px;
+  }
+}
+
+.block_item_container {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+.divider {
+  display: block;
+  width: 1px;
+  height: 16px;
+  background-color: rgba(17, 16, 28, 0.2);
+}
+
+.block_text {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #11101c;
+
+  @media screen and (min-width: 1440px) {
+    font-size: 16px;
+  }
+}
+
+.location_icon {
+  stroke: #11101c;
+  fill: transparent;
+}
+
+.rating_icon {
+  fill: #ffc531;
+}
+
+.price {
+  color: #38cd3e;
+}
+
+.heart_btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  @media screen and (min-width: 768px) {
+    top: 18px;
+    right: 18px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    position: static;
+  }
+}
+
+.heart_btn_icon {
+  stroke: #11101c;
+  fill: none;
+}
