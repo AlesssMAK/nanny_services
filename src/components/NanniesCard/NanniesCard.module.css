@@ -159,6 +159,7 @@
   position: absolute;
   top: 12px;
   right: 12px;
+  transition: all 0.3s ease;
 
   @media screen and (min-width: 768px) {
     top: 18px;
@@ -173,6 +174,16 @@
 .heart_btn_icon {
   stroke: #11101c;
   fill: none;
+}
+
+.heart_btn:hover .heart_btn_icon,
+.heart_btn:focus .heart_btn_icon {
+  opacity: 0.7;
+}
+
+.active .heart_btn_icon {
+  fill: #f03f3b;
+  stroke: #f03f3b;
 }
 
 /* ------- info ------- */

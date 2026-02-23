@@ -1,0 +1,81 @@
+.btn_container {
+  position: relative;
+}
+
+.filter_name {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.28571;
+  color: #8a8a89;
+  margin-bottom: 8px;
+}
+
+.filter_btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 14px;
+  padding: 14px 18px;
+  width: 226px;
+  height: 48px;
+  background: #103931;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.11111;
+  color: #fbfbfb;
+  transition: color 0.3s ease;
+}
+
+.chevron_icon {
+  stroke: #fbfbfb;
+  fill: none;
+  opacity: 1;
+  transition:
+    opasity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.filter_btn .open_chevron_icon {
+  transform: rotate(180deg);
+}
+
+.filter_btn:hover,
+.filter_btn:focus {
+  color: rgba(251, 251, 251, 0.7);
+}
+
+.filter_btn:hover .chevron_icon,
+.filter_btn:focus .chevron_icon {
+  opacity: 0.7;
+}
+
+.filter_menu {
+  position: absolute;
+  z-index: 15;
+  border-radius: 14px;
+  width: 226px;
+  height: 244px;
+  padding: 14px 18px;
+  box-shadow: 0 20px 69px 0 rgba(0, 0, 0, 0.07);
+  background: #fff;
+  margin-top: 8px;
+}
+
+.filters_list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.filters_list_item_btn {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.11111;
+  color: rgba(17, 16, 28, 0.3);
+  transition: color 0.3s ease;
+}
+
+.filters_list_item_btn:hover,
+.filters_list_item_btn:focus {
+  color: #11101c;
+}

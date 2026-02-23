@@ -5,11 +5,18 @@ import Button from '../UI/Button/Button';
 
 interface NanniesCardProps {
   nanny: Nanny;
+  onOpen?: () => void;
+  isFavorite?: boolean;
+  onToggleFavorite?: () => Promise<void>;
 }
 
-const NanniesCard = ({ nanny }: NanniesCardProps) => {
+const NanniesCard = ({
+  nanny,
+  onOpen,
+  isFavorite,
+  onToggleFavorite,
+}: NanniesCardProps) => {
   const [isShow, setIsShow] = useState(false);
-  console.log(nanny);
 
   const calcAge = (birthday: string) => {
     const birthdayDate = new Date(birthday);
@@ -71,7 +78,11 @@ const NanniesCard = ({ nanny }: NanniesCardProps) => {
                 <span className={css.price}>{nanny.price_per_hour}$</span>
               </p>
             </div>
-            <button type="button" className={css.heart_btn}>
+            <button
+              type="button"
+              className={`${css.heart_btn} ${isFavorite ? css.active : ''}`}
+              onClick={onToggleFavorite}
+            >
               <svg
                 width="26"
                 height="26"
@@ -172,7 +183,12 @@ const NanniesCard = ({ nanny }: NanniesCardProps) => {
                 </div>
               ))}
             </div>
-            <Button type="button" className="button" width={215}>
+            <Button
+              type="button"
+              className="button"
+              width={215}
+              onClick={onOpen}
+            >
               Make an appointment
             </Button>
           </div>

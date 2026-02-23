@@ -39,6 +39,7 @@ const ModalMenu = ({
       document.documentElement.style.overflow = '';
     };
   }, [onClose]);
+
   return createPortal(
     <div className={css.backdrop} role="dialog" aria-modal="true">
       <div className={css.modal_container}>

@@ -1,5 +1,6 @@
 import { getApps, initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { getDatabase } from 'firebase/database';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
@@ -17,4 +18,11 @@ export const app = !getApps().length
   : getApps()[0];
 
 export const auth = getAuth(app);
-export const db = getFirestore(app);
+export const firestore = getFirestore(app);
+export const realtimeDb = getDatabase(app);
+
+export function subscribeToAuth(callback: (uid: string | null) => void) {
+  return onAuthStateChanged(auth, user => {
+    callback(user ? user.uid : null);
+  });
+}

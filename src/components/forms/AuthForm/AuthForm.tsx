@@ -1,18 +1,18 @@
-import ModalAuth from '../../modals/Modal/ModalAuth';
-import Button from '../../UI/Button/Button';
-import Input from '../../UI/Input/Input';
-import css from './AuthForm.module.css';
-import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { FirebaseError } from 'firebase/app';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { signIn, signUp } from '../../../service/firebase/auth.service';
 import {
   LoginSchema,
   registrationSchema,
   type LoginFormData,
   type RegistrationFormData,
-} from '../../../utils/validation';
-import { signIn, signUp } from '../../../service/firebase/auth.service';
-import { useState } from 'react';
-import { FirebaseError } from 'firebase/app';
+} from '../../../validation/validation';
+import Modal from '../../modals/Modal/Modal';
+import Button from '../../UI/Button/Button';
+import Input from '../../UI/Input/Input';
+import css from './AuthForm.module.css';
 
 interface AuthFormProps {
   onClose: () => void;
@@ -96,7 +96,7 @@ const AuthForm = ({ onClose, mode }: AuthFormProps) => {
   };
 
   return (
-    <ModalAuth onClose={onClose}>
+    <Modal onClose={onClose}>
       <div className={css.auth_form_container}>
         <button type="button" onClick={onClose} className={css.close_btn}>
           <svg width="32" height="32" className={css.close_btn_icon}>
@@ -191,7 +191,7 @@ const AuthForm = ({ onClose, mode }: AuthFormProps) => {
           </form>
         )}
       </div>
-    </ModalAuth>
+    </Modal>
   );
 };
 
