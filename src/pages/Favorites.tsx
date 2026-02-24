@@ -29,7 +29,7 @@ const Favorites = () => {
       setFilteredNannies(order.slice(0, visibleCount));
     };
     pagination();
-  });
+  }, [favoriteNannies, currentFilter, visibleCount]);
 
   const handleFilterChange = (option: SortOption) => {
     setCurrentFilter(option);
@@ -38,7 +38,8 @@ const Favorites = () => {
 
   const loadMore = () => setVisibleCount(prev => prev + PER_PAGE);
   const hasMore =
-    filteredNannies.length < filterNannies(nannies, currentFilter).length;
+    filteredNannies.length <
+    filterNannies(favoriteNannies, currentFilter).length;
 
   return (
     <main>

@@ -8,6 +8,7 @@ import { AuthProvider } from './context/Auth/AuthProvider.tsx';
 import { FavoritesProvider } from './context/Favorites/FavoritesProvider.tsx';
 import './styles/fonts.css';
 import { NanniesProvider } from './context/Nannies/NanniesProvider.tsx';
+import ScrollToTopButton from './components/ScrollToTopBtn/ScrollToTopButton.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -16,6 +17,7 @@ createRoot(document.getElementById('root')!).render(
         <FavoritesProvider>
           <NanniesProvider>
             <App />
+            <ScrollToTopButton />
           </NanniesProvider>
         </FavoritesProvider>
       </AuthProvider>

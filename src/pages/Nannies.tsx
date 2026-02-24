@@ -33,8 +33,6 @@ const Nannies = () => {
     setVisibleCount(PER_PAGE);
   };
 
-  console.log(filteredNannies);
-
   const loadMore = () => setVisibleCount(prev => prev + PER_PAGE);
 
   const hasMore =
