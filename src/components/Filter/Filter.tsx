@@ -21,7 +21,6 @@ const FILTERS: { label: string; value: SortOption }[] = [
 const Filter = ({ onChange }: FilterProps) => {
   const [selected, setSelected] = useState<SortOption>('alphabet-asc');
   const [isOpen, setIsOpen] = useState(false);
-  console.log(isOpen);
 
   const handleSelect = (option: SortOption) => {
     setSelected(option);

@@ -1,9 +1,6 @@
 import type { Nanny, SortOption } from '../types/nanny';
 
-export function filterAndSortNannies(
-  nannies: Nanny[],
-  filter: SortOption
-): Nanny[] {
+export function filterNannies(nannies: Nanny[], filter: SortOption): Nanny[] {
   let list = [...nannies];
 
   switch (filter) {

@@ -5,9 +5,9 @@ import Button from '../UI/Button/Button';
 
 interface NanniesCardProps {
   nanny: Nanny;
-  onOpen?: () => void;
-  isFavorite?: boolean;
-  onToggleFavorite?: () => Promise<void>;
+  onOpen: () => void;
+  isFavorite: boolean;
+  onToggleFavorite: () => Promise<void>;
 }
 
 const NanniesCard = ({

@@ -57,13 +57,19 @@ const ModalMenu = ({
               <nav>
                 <ul className={css.nav_list}>
                   <li className={css.nav_list_item}>
-                    <Link to="/">Home</Link>
+                    <Link to="/" onClick={onClose}>
+                      Home
+                    </Link>
                   </li>
                   <li className={css.nav_list_item}>
-                    <Link to="/nannies">Nannies</Link>
+                    <Link to="/nannies" onClick={onClose}>
+                      Nannies
+                    </Link>
                   </li>
                   <li className={css.nav_list_item}>
-                    <Link to="/favorites">Favorites</Link>
+                    <Link to="/favorites" onClick={onClose}>
+                      Favorites
+                    </Link>
                   </li>
                 </ul>
               </nav>
@@ -90,10 +96,14 @@ const ModalMenu = ({
               <nav>
                 <ul className={css.nav_list}>
                   <li className={css.nav_list_item}>
-                    <Link to="/">Home</Link>
+                    <Link to="/" onClick={onClose}>
+                      Home
+                    </Link>
                   </li>
                   <li className={css.nav_list_item}>
-                    <Link to="/nannies">Nannies</Link>
+                    <Link to="/nannies" onClick={onClose}>
+                      Nannies
+                    </Link>
                   </li>
                 </ul>
               </nav>

@@ -1,13 +1,21 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import AppointmentForm from '../components/forms/AppointmentForm/AppointmentForm';
 import NanniesCard from '../components/NanniesCard/NanniesCard';
 import Button from '../components/UI/Button/Button';
 import { useFavorites } from '../context/Favorites/useFavorites';
 import { useNannies } from '../context/Nannies/useNannies';
 import css from './Pages.module.css';
+import Filter from '../components/Filter/Filter';
+import { filterNannies } from '../utils/nanny.utils';
+import type { Nanny, SortOption } from '../types/nanny';
+
+const PER_PAGE = 3;
 
 const Favorites = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(PER_PAGE);
+  const [currentFilter, setCurrentFilter] = useState<SortOption>('all');
+  const [filteredNannies, setFilteredNannies] = useState<Nanny[]>([]);
 
   const { nannies } = useNannies();
   const { favoriteIds, toggle } = useFavorites();
@@ -15,14 +23,30 @@ const Favorites = () => {
     favoriteIds.includes(nanny.id)
   );
 
-  console.log(favoriteNannies);
+  useEffect(() => {
+    const order = filterNannies(favoriteNannies, currentFilter);
+    const pagination = () => {
+      setFilteredNannies(order.slice(0, visibleCount));
+    };
+    pagination();
+  });
+
+  const handleFilterChange = (option: SortOption) => {
+    setCurrentFilter(option);
+    setVisibleCount(PER_PAGE);
+  };
+
+  const loadMore = () => setVisibleCount(prev => prev + PER_PAGE);
+  const hasMore =
+    filteredNannies.length < filterNannies(nannies, currentFilter).length;
 
   return (
     <main>
       <section className="section">
         <div className="container">
           <div className={css.nannies_page_container}>
-            {favoriteNannies.map(nanny => {
+            <Filter onChange={handleFilterChange} />
+            {filteredNannies.map(nanny => {
               const isFav = favoriteIds.includes(nanny.id);
 
               return (
@@ -37,9 +61,16 @@ const Favorites = () => {
             })}
           </div>
           <div className={css.btn_container}>
-            <Button type="button" className="button" width={159}>
-              Load more
-            </Button>
+            {hasMore && (
+              <Button
+                type="button"
+                className="button"
+                width={159}
+                onClick={loadMore}
+              >
+                Load more
+              </Button>
+            )}
           </div>
         </div>
         {isOpen && <AppointmentForm onClose={() => setIsOpen(false)} />}
