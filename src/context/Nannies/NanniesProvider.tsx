@@ -9,18 +9,24 @@ export const NanniesProvider = ({
 }) => {
   const [nannies, setNannies] = useState<Nanny[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const load = async () => {
-      const data = await getNannies();
-      setNannies(data);
-      setLoading(false);
+      try {
+        const data = await getNannies();
+        setNannies(data);
+      } catch {
+        setError('Failed to load nannies');
+      } finally {
+        setLoading(false);
+      }
     };
     load();
   }, []);
 
   return (
-    <NanniesContext.Provider value={{ nannies, loading }}>
+    <NanniesContext.Provider value={{ nannies, loading, error }}>
       {children}
     </NanniesContext.Provider>
   );
