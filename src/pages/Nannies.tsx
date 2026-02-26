@@ -14,11 +14,11 @@ import Loader from '../components/Loader/Loader';
 const PER_PAGE = 3;
 
 const Nannies = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const [visibleCount, setVisibleCount] = useState(PER_PAGE);
   const [currentFilter, setCurrentFilter] = useState<SortOption>('all');
   const [filteredNannies, setFilteredNannies] = useState<Nanny[]>([]);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const [onSelectNanny, setOnSelectNanny] = useState<Nanny | null>(null);
 
   const { nannies, loading, error } = useNannies();
   const { favoriteIds, toggle } = useFavorites();
@@ -90,7 +90,7 @@ const Nannies = () => {
                           nanny={nanny}
                           isFavorite={isFav}
                           onToggleFavorite={() => toggle(nanny.id, isFav)}
-                          onOpen={() => setIsOpen(true)}
+                          setOnSelectNanny={() => setOnSelectNanny(nanny)}
                         />
                       );
                     })}
@@ -112,7 +112,12 @@ const Nannies = () => {
             )}
           </div>
         </div>
-        {isOpen && <AppointmentForm onClose={() => setIsOpen(false)} />}
+        {onSelectNanny && (
+          <AppointmentForm
+            onClose={() => setOnSelectNanny(null)}
+            nanny={onSelectNanny}
+          />
+        )}
       </section>
     </main>
   );

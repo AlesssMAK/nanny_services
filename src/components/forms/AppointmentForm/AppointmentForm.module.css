@@ -1,0 +1,103 @@
+.appointment_form_container {
+  position: relative;
+  padding: 44px 24px 24px 24px;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @media screen and (min-width: 600px) {
+    padding: 64px;
+    gap: 30px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    gap: 40px;
+  }
+}
+
+.close_btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  transition: all 0.3 ease;
+
+  @media screen and (min-width: 375px) {
+    top: 20px;
+    right: 20px;
+  }
+}
+
+.close_btn_icon {
+  stroke: #11101c;
+}
+
+.close_btn:hover,
+.close_btn:focus {
+  opacity: 0.7;
+}
+
+.title_container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  @media screen and (min-width: 768px) {
+    gap: 15px;
+  }
+
+  @media screen and (min-width: 768px) {
+    gap: 20px;
+  }
+}
+
+.title {
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #11101c;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  color: rgba(17, 16, 28, 0.5);
+}
+
+.nanny_container {
+  display: flex;
+  gap: 14px;
+}
+
+.img {
+  border-radius: 15px;
+}
+
+.nanny_name_title {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33333;
+  color: #8a8a89;
+  margin-bottom: 4px;
+}
+
+.nanny_name {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #11101c;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form_block {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 8px;
+}

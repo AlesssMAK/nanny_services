@@ -14,11 +14,11 @@ import NoFound from '../components/NoFound/NoFound';
 const PER_PAGE = 3;
 
 const Favorites = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const [visibleCount, setVisibleCount] = useState(PER_PAGE);
   const [currentFilter, setCurrentFilter] = useState<SortOption>('all');
   const [filteredNannies, setFilteredNannies] = useState<Nanny[]>([]);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const [onSelectNanny, setOnSelectNanny] = useState<Nanny | null>(null);
 
   const { nannies, loading, error } = useNannies();
   const { favoriteIds, toggle } = useFavorites();
@@ -93,7 +93,7 @@ const Favorites = () => {
                           nanny={nanny}
                           isFavorite={isFav}
                           onToggleFavorite={() => toggle(nanny.id, isFav)}
-                          onOpen={() => setIsOpen(true)}
+                          setOnSelectNanny={() => setOnSelectNanny(nanny)}
                         />
                       );
                     })}
@@ -115,7 +115,12 @@ const Favorites = () => {
             )}
           </div>
         </div>
-        {isOpen && <AppointmentForm onClose={() => setIsOpen(false)} />}
+        {onSelectNanny && (
+          <AppointmentForm
+            onClose={() => setOnSelectNanny(null)}
+            nanny={onSelectNanny}
+          />
+        )}
       </section>
     </main>
   );

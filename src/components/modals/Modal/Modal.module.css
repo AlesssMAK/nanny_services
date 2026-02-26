@@ -17,4 +17,7 @@
   position: relative;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   margin: 0 8px;
+  max-height: 95vh;
+  overflow: hidden;
+  overflow-y: auto;
 }

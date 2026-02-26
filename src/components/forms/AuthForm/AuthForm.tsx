@@ -95,6 +95,9 @@ const AuthForm = ({ onClose, mode }: AuthFormProps) => {
     }
   };
 
+  const { isSubmitting: isLoginSubmitting } = loginForm.formState;
+  const { isSubmitting: isRegistrationSubmitting } = registratioForm.formState;
+
   return (
     <Modal onClose={onClose}>
       <div className={css.auth_form_container}>
@@ -136,8 +139,13 @@ const AuthForm = ({ onClose, mode }: AuthFormProps) => {
                 )}
               </div>
             </div>
-            <Button type="submit" className="button button_modal" width="100%">
-              Log In
+            <Button
+              type="submit"
+              className="button button_modal"
+              width="100%"
+              disabled={isLoginSubmitting}
+            >
+              {isLoginSubmitting ? 'Loading...' : 'Log In'}
             </Button>
             {authError && <p className={css.auth_error}>{authError}</p>}
           </form>
@@ -184,8 +192,13 @@ const AuthForm = ({ onClose, mode }: AuthFormProps) => {
                 )}
               </div>
             </div>
-            <Button type="submit" className="button_modal button " width="100%">
-              Sign Up
+            <Button
+              type="submit"
+              className="button_modal button "
+              width="100%"
+              disabled={isRegistrationSubmitting}
+            >
+              {isRegistrationSubmitting ? 'Loading...' : 'Sign Up'}
             </Button>
             {authError && <p className={css.auth_error}>{authError}</p>}
           </form>

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useAuthStore } from '../../../service/store/authStore';
 import Logo from '../../Logo/Logo';
 import Button from '../../UI/Button/Button';
@@ -19,6 +19,13 @@ const ModalMenu = ({
   openRegistration,
 }: ModalMenuProps) => {
   const { isAuthenticated, user } = useAuthStore();
+
+  const { pathname } = useLocation();
+
+  const isActive = (href: string) => {
+    if (href === '/') return pathname === '/';
+    return pathname?.startsWith(href);
+  };
 
   const onLogout = async () => {
     await logout();
@@ -57,17 +64,29 @@ const ModalMenu = ({
               <nav>
                 <ul className={css.nav_list}>
                   <li className={css.nav_list_item}>
-                    <Link to="/" onClick={onClose}>
+                    <Link
+                      to="/"
+                      onClick={onClose}
+                      className={`${css.nav_list_item_link} ${isActive('/') ? css.active : ''}`}
+                    >
                       Home
                     </Link>
                   </li>
                   <li className={css.nav_list_item}>
-                    <Link to="/nannies" onClick={onClose}>
+                    <Link
+                      to="/nannies"
+                      onClick={onClose}
+                      className={`${css.nav_list_item_link} ${isActive('/nannie') ? css.active : ''}`}
+                    >
                       Nannies
                     </Link>
                   </li>
                   <li className={css.nav_list_item}>
-                    <Link to="/favorites" onClick={onClose}>
+                    <Link
+                      to="/favorites"
+                      onClick={onClose}
+                      className={`${css.nav_list_item_link} ${isActive('/favorites') ? css.active : ''}`}
+                    >
                       Favorites
                     </Link>
                   </li>
@@ -96,12 +115,20 @@ const ModalMenu = ({
               <nav>
                 <ul className={css.nav_list}>
                   <li className={css.nav_list_item}>
-                    <Link to="/" onClick={onClose}>
+                    <Link
+                      to="/"
+                      onClick={onClose}
+                      className={`${css.nav_list_item_link} ${isActive('/') ? css.active : ''}`}
+                    >
                       Home
                     </Link>
                   </li>
                   <li className={css.nav_list_item}>
-                    <Link to="/nannies" onClick={onClose}>
+                    <Link
+                      to="/nannies"
+                      onClick={onClose}
+                      className={`${css.nav_list_item_link} ${isActive('/nannies') ? css.active : ''}`}
+                    >
                       Nannies
                     </Link>
                   </li>

@@ -17,12 +17,10 @@ const Button = ({
   width,
   height = 48,
 }: ButtonProps) => {
-  const clickAction = onClick ? onClick : () => {};
-
   return (
     <button
       className={className}
-      onClick={clickAction}
+      onClick={onClick}
       type={type}
       disabled={disabled}
       style={{

@@ -5,14 +5,14 @@ import Button from '../UI/Button/Button';
 
 interface NanniesCardProps {
   nanny: Nanny;
-  onOpen: () => void;
+  setOnSelectNanny: (nanny: Nanny) => void;
   isFavorite: boolean;
   onToggleFavorite: () => Promise<void>;
 }
 
 const NanniesCard = ({
   nanny,
-  onOpen,
+  setOnSelectNanny,
   isFavorite,
   onToggleFavorite,
 }: NanniesCardProps) => {
@@ -187,7 +187,9 @@ const NanniesCard = ({
               type="button"
               className="button"
               width={215}
-              onClick={onOpen}
+              onClick={() => {
+                setOnSelectNanny(nanny);
+              }}
             >
               Make an appointment
             </Button>
