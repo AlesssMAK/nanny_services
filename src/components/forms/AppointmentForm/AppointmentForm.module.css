@@ -127,6 +127,11 @@
   background: #fbfbfb;
 }
 
+.textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 12px rgba(16, 57, 49, 0.3);
+}
+
 .textarea::placeholder {
   font-family: var(--font-family);
   font-weight: 400;
