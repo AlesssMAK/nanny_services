@@ -34,7 +34,7 @@ The project is
   - Validation via `react-hook-form` + `yup`.
   - Success / error notifications (react-hot-toast).
   - Pre-fill of name, e-mail, and phone from the authenticated user's profile.
-- **Responsive Design** — Fully adaptive layout for Desktop (≥1440px), Tablet (≤1024px), and Mobile (≤480px).
+- **Responsive Design** — Fully responsive fluid layout that adapts smoothly from 320px up to 1440px.
 - **Theme Switcher** — 3 colour themes (Red / Blue / Green), persisted in localStorage.
 
 ## 🛠 Tech Stack
