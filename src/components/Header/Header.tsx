@@ -5,15 +5,15 @@ import ModalMenu from '../modals/MenuModal/ModalMenu';
 import Button from '../UI/Button/Button';
 import css from './Header.module.css';
 import AuthForm from '../forms/AuthForm/AuthForm';
-import { useAuthStore } from '../../service/store/authStore';
 import { logout } from '../../service/firebase/auth.service';
 import { useLocation } from 'react-router-dom';
+import { useAuth } from '../../context/Auth/useAuth';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenLogIn, setOpenLogIn] = useState(false);
   const [isOpenRegistration, setOpenRegistration] = useState(false);
-  const { isAuthenticated, user } = useAuthStore();
+  const { isAuthenticated, user } = useAuth();
 
   const open = () => setIsOpen(true);
   const close = () => setIsOpen(false);

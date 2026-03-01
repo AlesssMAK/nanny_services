@@ -13,6 +13,8 @@ import Modal from '../../modals/Modal/Modal';
 import Button from '../../UI/Button/Button';
 import Input from '../../UI/Input/Input';
 import css from './AuthForm.module.css';
+import { useAuth } from '../../../context/Auth/useAuth';
+import { toast } from 'react-toastify';
 
 interface AuthFormProps {
   onClose: () => void;
@@ -21,6 +23,8 @@ interface AuthFormProps {
 
 const AuthForm = ({ onClose, mode }: AuthFormProps) => {
   const [authError, setAuthError] = useState<string | null>(null);
+
+  const { setUser } = useAuth();
 
   const title = mode === 'login' ? 'Log In' : 'Registration';
   const text =
@@ -44,13 +48,16 @@ const AuthForm = ({ onClose, mode }: AuthFormProps) => {
 
   const onSubmitRegistration = async (values: RegistrationFormData) => {
     try {
-      await signUp({
+      const user = await signUp({
         name: values.name,
         email: values.email,
         password: values.password,
       });
+      toast.success('Registration completed successfully');
+      setUser(user);
       registratioForm.reset({ name: '', email: '', password: '' });
       onClose();
+      console.log(user);
     } catch (error: unknown) {
       if (error instanceof FirebaseError) {
         if (
@@ -71,10 +78,12 @@ const AuthForm = ({ onClose, mode }: AuthFormProps) => {
 
   const onSubmitLogin = async (values: LoginFormData) => {
     try {
-      await signIn({
+      const user = await signIn({
         email: values.email,
         password: values.password,
       });
+      toast.success('You have logged in successfully');
+      setUser(user);
       loginForm.reset({ email: '', password: '' });
       onClose();
     } catch (error: unknown) {

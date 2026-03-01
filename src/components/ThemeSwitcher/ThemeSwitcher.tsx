@@ -12,7 +12,6 @@ const themes: { id: Theme; color: string }[] = [
 const ThemeSwitcher = () => {
   const { theme, setTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
-  console.log(isOpen);
 
   const handleThemeChange = (theme: Theme) => {
     setTheme(theme);

@@ -47,11 +47,6 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  /* .btn:hover {
-    background: var(--primary-color);
-    border-color: var(--primary-color);
-  } */
-
   .btn:hover::before {
     transform: scale(1.2);
   }

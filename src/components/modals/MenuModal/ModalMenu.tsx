@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { Link, useLocation } from 'react-router-dom';
-import { useAuthStore } from '../../../service/store/authStore';
 import Logo from '../../Logo/Logo';
 import Button from '../../UI/Button/Button';
 import css from './ModalMenu.module.css';
 import { logout } from '../../../service/firebase/auth.service';
+import { useAuth } from '../../../context/Auth/useAuth';
 
 export interface ModalMenuProps {
   onClose: () => void;
@@ -18,7 +18,7 @@ const ModalMenu = ({
   openLogin,
   openRegistration,
 }: ModalMenuProps) => {
-  const { isAuthenticated, user } = useAuthStore();
+  const { isAuthenticated, user } = useAuth();
 
   const { pathname } = useLocation();
 
@@ -67,7 +67,9 @@ const ModalMenu = ({
                     <Link
                       to="/"
                       onClick={onClose}
-                      className={`${css.nav_list_item_link} ${isActive('/') ? css.active : ''}`}
+                      className={`${css.nav_list_item_link} ${
+                        isActive('/') ? css.active : ''
+                      }`}
                     >
                       Home
                     </Link>
@@ -76,7 +78,9 @@ const ModalMenu = ({
                     <Link
                       to="/nannies"
                       onClick={onClose}
-                      className={`${css.nav_list_item_link} ${isActive('/nannie') ? css.active : ''}`}
+                      className={`${css.nav_list_item_link} ${
+                        isActive('/nannie') ? css.active : ''
+                      }`}
                     >
                       Nannies
                     </Link>
@@ -85,7 +89,9 @@ const ModalMenu = ({
                     <Link
                       to="/favorites"
                       onClick={onClose}
-                      className={`${css.nav_list_item_link} ${isActive('/favorites') ? css.active : ''}`}
+                      className={`${css.nav_list_item_link} ${
+                        isActive('/favorites') ? css.active : ''
+                      }`}
                     >
                       Favorites
                     </Link>
@@ -118,7 +124,9 @@ const ModalMenu = ({
                     <Link
                       to="/"
                       onClick={onClose}
-                      className={`${css.nav_list_item_link} ${isActive('/') ? css.active : ''}`}
+                      className={`${css.nav_list_item_link} ${
+                        isActive('/') ? css.active : ''
+                      }`}
                     >
                       Home
                     </Link>
@@ -127,7 +135,9 @@ const ModalMenu = ({
                     <Link
                       to="/nannies"
                       onClick={onClose}
-                      className={`${css.nav_list_item_link} ${isActive('/nannies') ? css.active : ''}`}
+                      className={`${css.nav_list_item_link} ${
+                        isActive('/nannies') ? css.active : ''
+                      }`}
                     >
                       Nannies
                     </Link>

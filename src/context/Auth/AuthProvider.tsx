@@ -1,21 +1,51 @@
 import { useEffect, useState } from 'react';
-import { subscribeToAuth } from '../../service/firebase/firebase';
+import { onAuthStateChanged, type User } from 'firebase/auth';
+import { auth } from '../../service/firebase/firebase';
 import { AuthContext } from './AuthContext';
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+  const [user, setUserState] = useState<User | null>(null);
   const [userId, setUserId] = useState<string | null>(null);
-  const [authReady, setAuthReady] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  const setUser = (user: User | null) => {
+    setUserState(user);
+    setUserId(user ? user.uid : null);
+  };
+
+  const clearAuth = () => {
+    setUserState(null);
+  };
+
   useEffect(() => {
-    const unsub = subscribeToAuth(uid => {
-      setUserId(uid);
-      setAuthReady(true);
+    const unsubscribe = onAuthStateChanged(auth, firebaseUser => {
+      try {
+        setUser(firebaseUser);
+      } catch {
+        setError('Failed to load user');
+      } finally {
+        setLoading(false);
+      }
     });
-    return () => unsub();
+    return () => unsubscribe();
   }, []);
+
   return (
-    <AuthContext.Provider value={{ userId, authReady }}>
-      {' '}
-      {children}{' '}
+    <AuthContext.Provider
+      value={{
+        user,
+        userId,
+        isAuthenticated: !!user,
+        loading,
+        error,
+        setUser,
+        clearAuth,
+        setLoading,
+        setError,
+      }}
+    >
+      {children}
     </AuthContext.Provider>
   );
 };

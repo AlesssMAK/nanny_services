@@ -5,6 +5,7 @@ import {
   toggleFavorite,
 } from '../../service/firebase/favorites.service';
 import { FavoritesContext } from './FavoritesContext';
+import { toast } from 'react-toastify';
 
 export const FavoritesProvider = ({
   children,
@@ -27,10 +28,12 @@ export const FavoritesProvider = ({
   }, [userId]);
 
   const toggle = async (nannyId: string, isFavorite: boolean) => {
-    if (!userId) return;
+    if (!userId) {
+      toast.error('You need to log in to add this to favorites.');
+      return;
+    }
 
     await toggleFavorite(userId, nannyId, isFavorite);
-
     setFavoriteIds(prev =>
       isFavorite ? prev.filter(id => id !== nannyId) : [...prev, nannyId]
     );
