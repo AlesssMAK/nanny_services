@@ -30,7 +30,7 @@ The project is
 - **Favourites** — Authenticated users can toggle favourites; data is persisted in Firebase Realtime Database in real time.
 - **Appointment Booking** — Modal form with:
   - Fields: name, e-mail, phone, date of birth, comment.
-  - Custom time-picker dropdown (30-min slots, 09:00–18:00).
+  - Custom time-picker dropdown (30-min slots, 09:00–20:00).
   - Validation via `react-hook-form` + `yup`.
   - Success / error notifications (react-hot-toast).
   - Pre-fill of name, e-mail, and phone from the authenticated user's profile.
