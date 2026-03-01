@@ -20,4 +20,14 @@
   max-height: 95vh;
   overflow: hidden;
   overflow-y: auto;
+  z-index: 100;
+}
+
+.modal::-webkit-scrollbar {
+  width: 10px;
+}
+
+.modal::-webkit-scrollbar-thumb {
+  background-color: rgba(25, 26, 21, 0.2);
+  border-radius: 4px;
 }

@@ -27,6 +27,15 @@
   }
 }
 
+.modal_container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.modal_container::-webkit-scrollbar-thumb {
+  background-color: rgba(25, 26, 21, 0.2);
+  border-radius: 4px;
+}
+
 .logo_container {
   display: flex;
   justify-content: space-between;
