@@ -65,7 +65,9 @@ const Header = () => {
                   <li className={css.nav_list_item}>
                     <Link
                       to="/"
-                      className={`${css.nav_list_item_link} ${isActive('/') ? css.active : ''}`}
+                      className={`${css.nav_list_item_link} ${
+                        isActive('/') ? css.active : ''
+                      }`}
                     >
                       Home
                     </Link>
@@ -73,7 +75,9 @@ const Header = () => {
                   <li className={css.nav_list_item}>
                     <Link
                       to="/nannies"
-                      className={`${css.nav_list_item_link} ${isActive('/nannie') ? css.active : ''}`}
+                      className={`${css.nav_list_item_link} ${
+                        isActive('/nannie') ? css.active : ''
+                      }`}
                     >
                       Nannies
                     </Link>
@@ -81,7 +85,9 @@ const Header = () => {
                   <li className={css.nav_list_item}>
                     <Link
                       to="/favorites"
-                      className={`${css.nav_list_item_link} ${isActive('/favorites') ? css.active : ''}`}
+                      className={`${css.nav_list_item_link} ${
+                        isActive('/favorites') ? css.active : ''
+                      }`}
                     >
                       Favorites
                     </Link>
@@ -113,7 +119,9 @@ const Header = () => {
                   <li className={css.nav_list_item}>
                     <Link
                       to="/"
-                      className={`${css.nav_list_item_link} ${isActive('/') ? css.active : ''}`}
+                      className={`${css.nav_list_item_link} ${
+                        isActive('/') ? css.active : ''
+                      }`}
                     >
                       Home
                     </Link>
@@ -121,7 +129,9 @@ const Header = () => {
                   <li className={css.nav_list_item}>
                     <Link
                       to="/nannies"
-                      className={`${css.nav_list_item_link} ${isActive('/nannies') ? css.active : ''}`}
+                      className={`${css.nav_list_item_link} ${
+                        isActive('/nannies') ? css.active : ''
+                      }`}
                     >
                       Nannies
                     </Link>

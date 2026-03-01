@@ -6,7 +6,7 @@
   flex-direction: column;
   gap: 20px;
 
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 537px) {
     padding: 64px;
     gap: 30px;
   }
@@ -93,11 +93,55 @@
 .form {
   display: flex;
   flex-direction: column;
+  gap: 20px;
+
+  @media screen and (min-width: 537px) {
+    gap: 30px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    gap: 40px;
+  }
+}
+
+.form_container {
+  display: flex;
+  flex-direction: column;
   gap: 16px;
 }
 
 .form_block {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px 8px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.textarea {
+  border: 1px solid rgba(17, 16, 28, 0.1);
+  border-radius: 12px;
+  padding: 16px 18px;
+  height: 116px;
+  width: 100%;
+  outline: none;
+  resize: none;
+}
+
+.textarea::placeholder {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #11101c;
+}
+
+.input_container {
+  position: relative;
+}
+
+.error {
+  position: absolute;
+  color: red;
+  font-size: 12px;
+  bottom: -16px;
+  left: 8px;
 }

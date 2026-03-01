@@ -21,15 +21,15 @@ export interface Nanny {
   createdAt: number;
 }
 
-export interface AppointmentValues {
-  address: string;
-  phone: string;
-  childAge: string;
-  time: string;
-  email: string;
-  parentName: string;
-  comment: string;
-}
+// export interface AppointmentValues {
+//   address: string;
+//   phone: string;
+//   childAge: string;
+//   time: string;
+//   email: string;
+//   parentName: string;
+//   comment?: string | undefined;
+// }
 
 export type SortOption =
   | 'alphabet-asc'

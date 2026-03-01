@@ -23,7 +23,7 @@
   font-size: 28px;
   line-height: 1.33333;
   text-align: center;
-  color: #103931;
+  color: var(--primary-color);
 }
 
 .noFoundMessage {

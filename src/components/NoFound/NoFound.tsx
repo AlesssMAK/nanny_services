@@ -14,7 +14,7 @@ const NoFound = ({ title, message }: NoFoundProps) => {
         height="90"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#103931"
+        stroke="var(--primary-color)"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"

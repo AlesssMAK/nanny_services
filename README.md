@@ -1,75 +1,145 @@
-# React + TypeScript + Vite
+# Nanny Services
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Nanny.Services is a modern web application designed for a company that provides professional nanny services. The platform helps parents quickly, safely, and conveniently find a nanny, explore detailed profiles, read reviews, add candidates to favorites, and book an in‑person meeting.
 
-Currently, two official plugins are available:
+## Author
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Oleksii Makovii**
 
-## React Compiler
+- GitHub: [@Oleksii Makovii](https://github.com/AlesssMAK)
+- LinkedIn:
+  [linkedin.com/in/oleksii-makovii](www.linkedin.com/in/oleksii-makovii-5137a4289)
+- Email: makovii88@gmail.com
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## Live Demo
 
-Note: This will impact Vite dev & build performances.
+- [Live site on Vercel]()
 
-## Expanding the ESLint configuration
+The project is
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Features
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Authentication** — Secure Sign Up, Log In, and Log Out via Firebase Authentication.
+- **Nannies Catalog** — Browse a list of nannie profiles including avatar, name, rating, price per hour, location, experience, and education.
+- **Read More / Reviews** — Expand any card to read the nanny's full bio and verified parent reviews.
+- **Filtering & Sorting** — Filter/sort nannies by:
+  - Alphabetical order (A → Z, Z → A)
+  - Price (Low → High, High → Low)
+  - Popularity (by Rating)
+- **Load More** — Paginated listing (3 cards per page) with a "Load more" button.
+- **Favourites** — Authenticated users can toggle favourites; data is persisted in Firebase Realtime Database in real time.
+- **Appointment Booking** — Modal form with:
+  - Fields: name, e-mail, phone, date of birth, comment.
+  - Custom time-picker dropdown (30-min slots, 09:00–18:00).
+  - Validation via `react-hook-form` + `yup`.
+  - Success / error notifications (react-hot-toast).
+  - Pre-fill of name, e-mail, and phone from the authenticated user's profile.
+- **Responsive Design** — Fully adaptive layout for Desktop (≥1440px), Tablet (≤1024px), and Mobile (≤480px).
+- **Theme Switcher** — 3 colour themes (Red / Blue / Green), persisted in localStorage.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🛠 Tech Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| Layer            | Technologies                                        |
+| ---------------- | --------------------------------------------------- |
+| **Frontend**     | React 19, TypeScript                                |
+| **Build**        | Vite 7                                              |
+| **Routing**      | React Router DOM 7                                  |
+| **Styling**      | CSS Modules, `modern-normalize`                     |
+| **Forms**        | `react-hook-form`, `yup`, `@hookform/resolvers`     |
+| **Backend / DB** | Firebase Realtime Database, Firebase Authentication |
+
+## 📂 Project Structure
+
+```
+src/
+  assets/
+    fonts/
+  components/
+    Filter/
+    forms/
+      AppointmentForm/
+      AuthForm/
+    Header/
+    Loader/
+    Logo/
+    modals/
+      MenuModal/
+      Modal/
+      NanniesCard/
+    NoFound/
+    ScrollToTopBtn/
+    UI/
+      Button/
+      Input/
+  context/
+    Auth/
+    Favorites/
+    Nannies/
+  layouts/
+  pages/
+  routes/
+  scripts/
+  service/
+    firebase/
+    store/
+  styles/
+  types/
+  utils/
+  validation/
+  App.tsx
+  main.tsx
+
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📦 Installation & Setup
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+**1. Clone the repository**
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/your-username/nanny_services.git
+cd nanny_services
 ```
+
+**2. Install dependencies**
+
+```bash
+npm install
+```
+
+**3. Configure Firebase**
+
+Create a `.env` file in the project root:
+
+```env
+VITE_FIREBASE_API_KEY=your_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
+VITE_FIREBASE_DATABASE_URL=your_database_url
+```
+
+> **Note:** Never commit `.env` to version control. It is already listed in `.gitignore`.
+
+**4. Run the development server**
+
+```bash
+npm run dev
+```
+
+**5. Build for production**
+
+```bash
+npm run build
+```
+
+**6. Preview the production build**
+
+```bash
+npm run preview
+```
+
+## 📄 License
+
+This project is licensed under the MIT License.

@@ -182,8 +182,8 @@
 }
 
 .active .heart_btn_icon {
-  fill: #103931;
-  stroke: #103931;
+  fill: var(--primary-color);
+  stroke: var(--primary-color);
 }
 
 /* ------- info ------- */
@@ -327,7 +327,7 @@
   font-weight: 500;
   font-size: 20px;
   line-height: 1;
-  color: #103931;
+  color: var(--primary-color);
 }
 
 .reviewer_name {

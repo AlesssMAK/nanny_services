@@ -37,9 +37,9 @@ export const appointmentSchema = yup.object({
   time: yup.string().required('Time is required'),
   email: yup.string().email('Invalid email').required('Email is required'),
   parentName: yup.string().required('Parent name is required'),
-  comment: yup.string().optional(),
+  comment: yup.string().required('Comment is required'),
 });
 
 export type LoginFormData = yup.InferType<typeof LoginSchema>;
 export type RegistrationFormData = yup.InferType<typeof registrationSchema>;
-export type AppointmentFormValues = yup.InferType<typeof appointmentSchema>;
+export type AppointmentFormData = yup.InferType<typeof appointmentSchema>;

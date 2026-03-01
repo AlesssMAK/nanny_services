@@ -15,7 +15,7 @@
 }
 
 .header {
-  background-color: #103931;
+  background-color: var(--primary-color);
 }
 
 .header_container {
@@ -119,7 +119,7 @@
 }
 
 .user_icon {
-  fill: #103931;
+  fill: var(--primary-color);
 }
 
 .user_name {

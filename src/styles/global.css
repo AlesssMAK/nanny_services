@@ -1,3 +1,13 @@
+:root {
+  --primary-color: #f03f3b; /* твій поточний колір */
+}
+[data-theme='blue'] {
+  --primary-color: #0957c3;
+}
+[data-theme='green'] {
+  --primary-color: #103931;
+}
+
 .html {
   scroll-behavior: smooth;
 }
@@ -88,17 +98,15 @@ h6 {
   letter-spacing: -0.01em;
   color: #fbfbfb;
   border-radius: 30px;
-  background: #103931;
-  transition:
-    background 0.3s ease,
-    color 0.3s ease;
+  background: var(--primary-color);
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .button:hover,
 .button:focus {
   background: transparent;
-  border: 1px solid #103931;
-  color: #103931;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
 }
 
 .button_link {
@@ -109,6 +117,6 @@ h6 {
 .auth_button:hover,
 .auth_button:focus {
   background: #fbfbfb;
-  color: #103931;
+  color: var(--primary-color);
   border: none;
 }

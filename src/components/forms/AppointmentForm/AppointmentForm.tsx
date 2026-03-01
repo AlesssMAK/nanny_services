@@ -1,8 +1,15 @@
+import { useForm } from 'react-hook-form';
 import type { Nanny } from '../../../types/nanny';
 import Modal from '../../modals/Modal/Modal';
 import Button from '../../UI/Button/Button';
 import Input from '../../UI/Input/Input';
 import css from './AppointmentForm.module.css';
+import {
+  appointmentSchema,
+  type AppointmentFormData,
+} from '../../../validation/validation';
+import { toast } from 'react-toastify';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 interface AppointmentFormProps {
   onClose: () => void;
@@ -10,7 +17,25 @@ interface AppointmentFormProps {
 }
 
 const AppointmentForm = ({ onClose, nanny }: AppointmentFormProps) => {
-  console.log(nanny);
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<AppointmentFormData>({
+    resolver: yupResolver(appointmentSchema),
+  });
+
+  const onSubmit = async (data: AppointmentFormData) => {
+    try {
+      console.log('Appointment submitted:', data);
+      toast.success('Appointment request sent!');
+      reset();
+      onClose();
+    } catch {
+      toast.error('Something went wrong. Please try again.');
+    }
+  };
 
   return (
     <Modal onClose={onClose}>
@@ -43,20 +68,78 @@ const AppointmentForm = ({ onClose, nanny }: AppointmentFormProps) => {
             <p className={css.nanny_name}>{nanny.name}</p>
           </div>
         </div>
-        <form action="" className={css.form}>
-          <div className={css.form_block}>
-            <Input />
-            <Input />
-            <Input />
-            <Input />
+        <form onSubmit={handleSubmit(onSubmit)} className={css.form}>
+          <div className={css.form_container}>
+            <div className={css.form_block}>
+              <div className={css.input_container}>
+                <Input
+                  {...register('address')}
+                  type="text"
+                  placeholder="Address"
+                />
+                {errors.address && (
+                  <p className={css.error}>{errors.address.message}</p>
+                )}
+              </div>
+              <div className={css.input_container}>
+                <Input {...register('phone')} type="tel" placeholder="+380" />
+                {errors.phone && (
+                  <p className={css.error}>{errors.phone.message}</p>
+                )}
+              </div>
+              <div className={css.input_container}>
+                <Input
+                  {...register('childAge')}
+                  type="text"
+                  placeholder="Child's age"
+                />
+                {errors.childAge && (
+                  <p className={css.error}>{errors.childAge.message}</p>
+                )}
+              </div>
+              <div className={css.input_container}>
+                <Input {...register('time')} type="time" value="00:00" />
+                {errors.time && (
+                  <p className={css.error}>{errors.time.message}</p>
+                )}
+              </div>
+            </div>
+            <div className={css.input_container}>
+              <Input
+                {...register('email')}
+                type="email"
+                name="email"
+                placeholder="Email"
+              />
+              {errors.email && (
+                <p className={css.error}>{errors.email.message}</p>
+              )}
+            </div>
+            <div className={css.input_container}>
+              <Input
+                {...register('parentName')}
+                type="text"
+                placeholder="Father's or mother's name"
+              />
+              {errors.parentName && (
+                <p className={css.error}>{errors.parentName.message}</p>
+              )}
+            </div>
+            <div className={css.input_container}>
+              <textarea
+                {...register('comment')}
+                className={css.textarea}
+                placeholder="Comment"
+              />
+              {errors.comment && (
+                <p className={css.error}>{errors.comment.message}</p>
+              )}
+            </div>
           </div>
-          <Input />
-          <Input />
-          <Input />
+          <Button type="submit" className="button" height={52}>
+            {isSubmitting ? 'Sending...' : 'Send'}
+          </Button>
         </form>
-        <Button type="button" className="button" height={52}>
-          Send
-        </Button>
       </div>
     </Modal>
   );

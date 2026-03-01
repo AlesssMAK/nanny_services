@@ -1,0 +1,62 @@
+.theme_container {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 24px;
+  bottom: 76px;
+  border: 2px solid var(--primary-color);
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+}
+
+.thems {
+  position: fixed;
+  bottom: 128px;
+  right: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.option_btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.option_btn:hover,
+.option_btn:focus,
+.option_btn:active {
+  transform: scale(1.2);
+}
+
+.theme_btn {
+  right: 24px;
+  bottom: 72px;
+  background-color: var(--primary-color);
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  display: flex;
+  transition: all 0.3s ease;
+}
+
+.theme_btn:hover,
+.theme_btn:focus,
+.theme_btn:active {
+  transform: scale(1.2);
+}
+
+.check_icon {
+  fill: #fff;
+}
+
+.hidden {
+  display: none;
+}

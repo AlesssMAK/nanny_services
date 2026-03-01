@@ -18,7 +18,7 @@
   padding: 14px 18px;
   width: 226px;
   height: 48px;
-  background: #103931;
+  background: var(--primary-color);
   font-weight: 500;
   font-size: 18px;
   line-height: 1.11111;
@@ -30,9 +30,7 @@
   stroke: #fbfbfb;
   fill: none;
   opacity: 1;
-  transition:
-    opasity 0.3s ease,
-    transform 0.3s ease;
+  transition: opasity 0.3s ease, transform 0.3s ease;
 }
 
 .filter_btn .open_chevron_icon {

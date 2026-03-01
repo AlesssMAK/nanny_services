@@ -78,7 +78,7 @@ export default function ScrollToTopButton({ showAfter = 400 }: Props) {
       title="Top"
       style={{ ['--fillScale' as string]: fillScale.toString() }}
     >
-      <svg width="24" height="24" className={css.icon} aria-hidden="true">
+      <svg width="20" height="20" className={css.icon} aria-hidden="true">
         <use href="/sprite.svg#arrow_back_ios_new" />
       </svg>
     </button>
