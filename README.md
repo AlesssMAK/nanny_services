@@ -8,7 +8,7 @@ Nanny.Services is a modern web application designed for a company that provides 
 
 - GitHub: [@Oleksii Makovii](https://github.com/AlesssMAK)
 - LinkedIn:
-  [linkedin.com/in/oleksii-makovii](www.linkedin.com/in/oleksii-makovii-5137a4289)
+  [linkedin.com/in/oleksii-makovii](https://www.linkedin.com/in/oleksii-makovii-5137a4289/)
 - Email: makovii88@gmail.com
 
 ## Live Demo
