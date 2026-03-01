@@ -152,18 +152,6 @@ VITE_FIREBASE_DATABASE_URL=your_database_url
 npm run dev
 ```
 
-**5. Build for production**
-
-```bash
-npm run build
-```
-
-**6. Preview the production build**
-
-```bash
-npm run preview
-```
-
 ## 📄 License
 
 This project is licensed under the MIT License.
