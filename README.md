@@ -52,42 +52,66 @@ The project is
 
 ```
 src/
-  assets/
-    fonts/
-  components/
-    Filter/
-    forms/
-      AppointmentForm/
-      AuthForm/
-    Header/
-    Loader/
-    Logo/
-    modals/
-      MenuModal/
-      Modal/
-      NanniesCard/
-    NoFound/
-    ScrollToTopBtn/
-    UI/
-      Button/
-      Input/
-  context/
-    Auth/
-    Favorites/
-    Nannies/
-  layouts/
-  pages/
-  routes/
-  scripts/
-  service/
-    firebase/
-    store/
-  styles/
-  types/
-  utils/
-  validation/
-  App.tsx
-  main.tsx
+│
+├── assets/
+│   └── fonts/
+│
+├── components/
+│   ├── Filter/
+│   ├── Forms/
+│   │   ├── AppointmentForm/
+│   │   └── AuthForm/
+│   ├── Header/
+│   ├── Loader/
+│   ├── Logo/
+│   ├── modals/
+│   │   ├── MenuModal/
+│   │   └── Modal/
+│   ├── NanniesCard/
+│   ├── NotFound/
+│   ├── ScrollToTopBtn/
+│   ├── ThemeSwitcher/
+│   └── UI/
+│       ├── Button/
+│       └── Input/
+│
+├── context/
+│   ├── Auth/
+│   ├── Favorites/
+│   ├── Nannies/
+│   └── Theme/
+│
+├── layouts/
+│
+├── pages/
+│   ├── Favorites.tsx
+│   ├── Home.tsx
+│   ├── Home.module.css
+│   ├── Nannies.tsx
+│   └── Pages.module.css
+│
+├── routes/
+│
+├── scripts/
+│
+├── service/
+│   └── firebase/
+│       ├── firebase.ts
+│       ├── auth.service.ts
+│       └── nannies.service.ts
+│
+├── styles/
+│
+├── types/
+│
+├── utils/
+│
+├── validation/
+│
+├── App.tsx
+├── main.tsx
+└── declarations.d.ts
+
 
 ```
 
