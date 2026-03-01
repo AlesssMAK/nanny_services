@@ -65,7 +65,10 @@
   height: 364px;
   width: 100%;
   border-radius: 0 0 30px 30px;
-  background-image: url('/img/Rectangle.jpg');
+  background-image: image-set(
+    url('/img/Rectangle.jpg') 1x,
+    url('/img/Rectangle-2x.jpg') 2x
+  );
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;

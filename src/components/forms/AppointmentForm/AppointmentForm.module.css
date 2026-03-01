@@ -124,6 +124,7 @@
   width: 100%;
   outline: none;
   resize: none;
+  background: #fbfbfb;
 }
 
 .textarea::placeholder {
