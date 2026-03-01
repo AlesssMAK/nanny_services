@@ -13,7 +13,7 @@ Nanny.Services is a modern web application designed for a company that provides 
 
 ## Live Demo
 
-- [Live site on Vercel]()
+- [Live site on Vercel](https://nanny-services-mu.vercel.app/)
 
 The project is
 
