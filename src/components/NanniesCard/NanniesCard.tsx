@@ -159,7 +159,7 @@ const NanniesCard = ({
           <div className={css.reviews_block_container}>
             <div className={css.reviews_container}>
               {nanny.reviews.map(review => (
-                <div className={css.review_container}>
+                <div key={review.reviewer} className={css.review_container}>
                   <div className={css.reviewer_container}>
                     <div className={css.reviewer_avatar}>
                       {review.reviewer.charAt(0).toUpperCase()}
