@@ -71,3 +71,15 @@
   bottom: -16px;
   left: 8px;
 }
+
+.submit_btn_container {
+  position: relative;
+}
+
+.auth_error {
+  position: absolute;
+  color: red;
+  font-size: 12px;
+  bottom: -16px;
+  left: 16px;
+}

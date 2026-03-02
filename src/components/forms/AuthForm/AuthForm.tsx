@@ -148,15 +148,17 @@ const AuthForm = ({ onClose, mode }: AuthFormProps) => {
                 )}
               </div>
             </div>
-            <Button
-              type="submit"
-              className="button button_modal"
-              width="100%"
-              disabled={isLoginSubmitting}
-            >
-              {isLoginSubmitting ? 'Loading...' : 'Log In'}
-            </Button>
-            {authError && <p className={css.auth_error}>{authError}</p>}
+            <div className={css.submit_btn_container}>
+              <Button
+                type="submit"
+                className="button button_modal"
+                width="100%"
+                disabled={isLoginSubmitting}
+              >
+                {isLoginSubmitting ? 'Loading...' : 'Log In'}
+              </Button>
+              {authError && <p className={css.auth_error}>{authError}</p>}
+            </div>
           </form>
         ) : (
           <form
@@ -201,15 +203,17 @@ const AuthForm = ({ onClose, mode }: AuthFormProps) => {
                 )}
               </div>
             </div>
-            <Button
-              type="submit"
-              className="button_modal button "
-              width="100%"
-              disabled={isRegistrationSubmitting}
-            >
-              {isRegistrationSubmitting ? 'Loading...' : 'Sign Up'}
-            </Button>
-            {authError && <p className={css.auth_error}>{authError}</p>}
+            <div className={css.submit_btn_container}>
+              <Button
+                type="submit"
+                className="button_modal button "
+                width="100%"
+                disabled={isRegistrationSubmitting}
+              >
+                {isRegistrationSubmitting ? 'Loading...' : 'Sign Up'}
+              </Button>
+              {authError && <p className={css.auth_error}>{authError}</p>}
+            </div>
           </form>
         )}
       </div>
